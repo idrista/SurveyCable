@@ -1,0 +1,17 @@
+<div id="<%= dom_id session %>">
+  <p>
+    <strong>Name:</strong>
+    <%= session.name %>
+    <br>
+    <strong>Code:</strong>
+    <%= session.slug %>
+    <br>
+    <strong>Link:</strong>
+    <a href="<%= "/go/#{session.slug}" %>">
+      <%= "#{request.base_url}/#{session.slug}" %>
+    </a>
+
+
+  </p>
+
+</div>
