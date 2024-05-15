@@ -1,0 +1,53 @@
+ <style>
+      .container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 100vh;
+      }
+      .section {
+          width: 45%;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+      }
+      h1 {
+          text-align: center;
+      }
+      form {
+          text-align: center;
+      }
+      input[type="submit"] {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+  </style>
+
+<div class="container">
+  <div class="section">
+    <h1>Create session</h1>
+    <%= render "form", session: @session %>
+  </div>
+  <div class="section">
+    <h1>Join session</h1>
+    <form id="joinForm">
+      <label for="session_code">Code</label><br>
+      <input type="text" id="session_code" name="session_code"><br><br>
+      <input type="submit" value="Join">
+    </form>
+  </div>
+</div>
+
+<script>
+    document.getElementById('joinForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var sessionCode = document.getElementById('session_code').value;
+        window.location.href = '/go/' + sessionCode;
+    });
+</script>

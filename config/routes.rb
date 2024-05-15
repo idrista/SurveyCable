@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'sessions#root'
+  get '/register', to: 'register#index'
+  post 'register/create_user'
+  get 'go/:slug', to: 'sessions#go'
+
   resources :sessions
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
